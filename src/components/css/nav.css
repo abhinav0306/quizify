@@ -1,10 +1,10 @@
+/* adding styling to navbar */
 .navbar {
     margin-top: 5vh;
     height: fit-content;
     display: flex;
     align-items: center;
     justify-content: space-between;
-    /* background-color: red; */
     padding:0.5%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
 
