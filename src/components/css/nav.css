@@ -1,19 +1,24 @@
 /* adding styling to navbar */
 .navbar {
-    margin-top: 5vh;
-    height: fit-content;
+    /* height: fit-content; */
     display: flex;
     align-items: center;
     justify-content: space-between;
     padding:0.5%;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    overflow: hidden;
 
 }
 .logo img{
     height: 50px;
+    margin-left: 20px;
 }
 .modebtn {  
     background-color: transparent;
     margin-right: 30px;
     cursor: pointer;
+    
+}
+svg{
+    margin-top: 30px;
 }

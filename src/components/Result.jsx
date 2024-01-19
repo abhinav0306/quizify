@@ -5,7 +5,7 @@ const Result = ({ correctAnswers, totalQuestions }) => {
   // calculating percentage
   const percentage = (correctAnswers / totalQuestions) * 100;
 
-  // getComment will give comment according to the percentage obtained
+  // getComment function will give comment according to the percentage obtained
   const getComment = () => (
     percentage === 100
       ? "Excellent! You nailed it!"
@@ -21,13 +21,18 @@ const Result = ({ correctAnswers, totalQuestions }) => {
   const comment = getComment();
 
   return (
+    // this will return a result box which will contain all the details
     <div className="mainContainer">
       <div className="resultContainer">
-        <h1>Quiz Result</h1>
+        <div className="content" id="content">
+        <h1 >Quiz Result</h1>
         <p>Number of correct answers: {correctAnswers}</p>
-        <p>Total Questions: {totalQuestions}</p>
+        <p>Total Questions: {totalQuestions}</p></div>
         <p id="comment">{comment}</p>
         <p id="percent">{percentage}%</p>
+      </div>
+      <div className="restartBtn">
+        <button className="resBtn darkMode">Restart</button>
       </div>
     </div>
   );

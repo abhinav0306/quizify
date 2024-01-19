@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import "./css/box.css";
 import questions from "../assets/questions.js";
 import Result from "./Result.jsx"
+import Nav from "./Nav.jsx";
 export default function QuestionBox() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [highlight, setHighlight] = useState(false);
@@ -35,12 +36,12 @@ export default function QuestionBox() {
   return (
     
     // creating a div that will contain question and options
-    <div className="container flex">
+    <div className="container flex" id="boxContainer">
       {showResult ? (
         // Render Result component when showResult is true
         <Result correctAnswers={correctAnswers} totalQuestions={5}/>
       ) : (
-      <div className={`queBox flex ${highlight ? "highlighted" : ""}`}>
+      <div id="ques" className={`queBox flex ${highlight ? "highlighted" : ""} darkMode`}>
         {/* this div will display the current question number */}
 
         <div className="num">
@@ -63,11 +64,11 @@ export default function QuestionBox() {
           ))}
         </div>
         {/* highlight buttons are created here to highligt the question */}
-        <div className="highlight">
-          <button className="highBtn" onClick={handleHighlight}>
+        <div className="highlight" id="highBtns">
+          <button className="highBtn darkMode" id="high" onClick={handleHighlight}>
             HIGHLIGHT
           </button>
-          <button className="highBtn" id="rem" onClick={handleRemoveHighlight}>
+          <button className="highBtn darkMode" id="rem" onClick={handleRemoveHighlight}>
             REMOVE HIGHLIGHT
           </button>
         </div>
