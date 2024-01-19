@@ -1,18 +1,17 @@
 import React, { useEffect, useState } from "react";
 import "./App.css";
-import questions from "./assets/questions";
-import Result from "./components/Result";
 import QuestionBox from "./components/QuestionBox";
 import Nav from "./components/Nav";
-
-
+import Result from "./components/Result"
 
 function App() {
 
   return (
     <div>
-     <Nav/>
-     <QuestionBox/>
+      {/* calling the respective component to display it  */}
+    <Nav/>
+     <QuestionBox/> 
+     {/* <Result/> */}
     </div>
   );
 }

@@ -1,0 +1,27 @@
+.mainContainer{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+}
+.resultContainer{
+    text-align: center;
+    width: 50vw;
+    height: 40vh;
+    /* border: 2px solid black; */
+    box-shadow: rgba(127, 0, 255, 0.25) 0px 54px 55px,
+    rgba(127, 0, 255, 0.25) 0px -12px 30px, rgba(127, 0, 255, 0.12) 0px 4px 6px,
+    rgba(127, 0, 255, 0.25) 0px 12px 13px, rgba(127, 0, 255, 0.09) 0px -3px 5px;
+    margin-top: 18vh;
+}
+#percent{
+    margin-top: 5vh;
+    font-size: 40px;
+    color: #7f00ff;
+    font-weight: 900;
+}
+#comment{
+    color: red;
+    font-weight: 600;
+    font-size: 20px;
+}

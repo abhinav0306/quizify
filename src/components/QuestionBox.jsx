@@ -1,11 +1,14 @@
 import React, { useState } from "react";
 import "./css/box.css";
 import questions from "../assets/questions.js";
-
+import Result from "./Result.jsx"
 export default function QuestionBox() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [highlight, setHighlight] = useState(false);
   const current = questions[currentIndex];
+  const [showResult, setShowResult] = useState(false);
+  const [correctAnswers, setCorrectAnswers] = useState(0);
+
   // handleHighligt and HandleRemoveHighlight are two functions that will be called onclick of respective buttons
   const handleHighlight = () => {
     setHighlight(true);
@@ -14,12 +17,29 @@ export default function QuestionBox() {
     setHighlight(false);
   };
   // handleClick function will change the question and options whenever an option is clicked
-  const handleClick=()=>{
-    setCurrentIndex((prev)=>prev+1)
-  }
+  const handleClick = (isCorrect) => {
+    setCurrentIndex((prev) => {
+      const next = prev + 1;
+      if (next === 5) {
+        setShowResult(true);
+      }
+      // Update correct answers if the selected option is correct
+      if (isCorrect) {
+        setCorrectAnswers((prevCorrect) => prevCorrect + 1);
+      }
+      return next;
+    });
+
+};
+
   return (
+    
     // creating a div that will contain question and options
     <div className="container flex">
+      {showResult ? (
+        // Render Result component when showResult is true
+        <Result correctAnswers={correctAnswers} totalQuestions={5}/>
+      ) : (
       <div className={`queBox flex ${highlight ? "highlighted" : ""}`}>
         {/* this div will display the current question number */}
 
@@ -37,7 +57,7 @@ export default function QuestionBox() {
 
         <div className="options flex">
           {current.options.map((option) => (
-            <button key={option.id} className="optionBtn" onClick={handleClick}>
+            <button key={option.id} className="optionBtn" onClick={() => handleClick(option.isCorrect)}>
               {option.text}
             </button>
           ))}
@@ -52,6 +72,7 @@ export default function QuestionBox() {
           </button>
         </div>
       </div>
-    </div>
-  );
-}
+      )}
+      </div>
+    );
+  }
