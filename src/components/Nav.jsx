@@ -13,7 +13,7 @@ export default function Nav() {
       {/* logo */}
       <div className="logo">
         <img
-          src="https://github.com/abhinav0306/quizify/blob/main/src/assets/purple.png?raw=true"
+          src="../assets/logo.png"
           alt=""
         />
       </div>
