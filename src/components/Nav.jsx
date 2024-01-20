@@ -8,7 +8,7 @@ export default function Nav() {
   const toggleDarkMode = (checked: boolean) => {
     setDarkMode(checked);
   };
-
+  // using useEffect hook to toggle modes and changing colors 
   useEffect(() => {
     document.body.style.backgroundColor = isDarkMode ? 'black' : 'white';
     document.querySelectorAll('.darkMode').forEach((element) => {

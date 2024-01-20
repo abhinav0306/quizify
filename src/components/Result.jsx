@@ -1,7 +1,11 @@
-import React from "react";
+import React, { useState } from "react";
+import QuestionBox from "./QuestionBox";
 import "./css/result.css";
 
-const Result = ({ correctAnswers, totalQuestions }) => {
+const Result = ({ correctAnswers, totalQuestions, onRestart }) => {
+  // using hook to change state of restart button 
+  const [restart, setRestart] = useState(false);
+
   const percentage = (correctAnswers / totalQuestions) * 100;
 
   // getComment function will give comment according to the percentage obtained
@@ -18,20 +22,32 @@ const Result = ({ correctAnswers, totalQuestions }) => {
   );
 
   const comment = getComment();
+  // handleRestart function will set all the values to default from the questionBox component.
+  const handleRestart = () => {
+    onRestart();
+    setRestart(true);
+  };
 
   return (
-    // this will return a result box which will contain all the details
     <div className="mainContainer">
-      <div className="resultContainer">
-        <div className="content" id="content">
-        <h1 >Quiz Result</h1>
-        <p>Number of correct answers: {correctAnswers}</p>
-        <p>Total Questions: {totalQuestions}</p></div>
-        <p id="comment">{comment}</p>
-        <p id="percent">{percentage}%</p>
-      </div>
+      {/* making restart button functional */}
+      {restart ? (
+        <QuestionBox restart={restart} setRestart={setRestart} />
+      ) : (
+        <div className="resultContainer">
+          <div className="content" id="content">
+            <h1>Quiz Result</h1>
+            <p>Number of correct answers: {correctAnswers}</p>
+            <p>Total Questions: {totalQuestions}</p>
+          </div>
+          <p id="comment">{comment}</p>
+          <p id="percent">{percentage}%</p>
+        </div>
+      )}
       <div className="restartBtn">
-        <button className="resBtn ">Restart</button>
+        <button className="resBtn" onClick={handleRestart}>
+          Restart
+        </button>
       </div>
     </div>
   );

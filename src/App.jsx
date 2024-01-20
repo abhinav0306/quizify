@@ -10,7 +10,7 @@ function App() {
       {/* calling the respective component to display it  */}
     <Nav/>
      <QuestionBox/> 
-     {/* <Result/> */}
+     {/* credits */}
      <h3 className="credits">Made with 💖 by Abhinav</h3>
     </div>
   );

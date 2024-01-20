@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "./css/box.css";
 import questions from "../assets/questions.js";
 import Result from "./Result.jsx"
-export default function QuestionBox() {
+export default function QuestionBox({ restart, setRestart }) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [highlight, setHighlight] = useState(false);
   const current = questions[currentIndex];
@@ -30,13 +30,21 @@ export default function QuestionBox() {
     });
 
 };
+// setting all the values to default so that the restart feature will work properly
+const handleRestart = () => {
+  setCurrentIndex(0);
+  setHighlight(false);
+  setShowResult(false);
+  setCorrectAnswers(0);
+  setRestart(false);
+};
 
   return (
     
     // creating a div that will contain question and options
     <div className="container flex" id="boxContainer">
       {showResult ? (
-        <Result correctAnswers={correctAnswers} totalQuestions={5}/>
+        <Result correctAnswers={correctAnswers} totalQuestions={5} onRestart={handleRestart}/>
       ) : (
       <div id="ques" className={`queBox flex ${highlight ? "highlighted" : ""} darkMode`}>
         {/* this div will display the current question number */}
