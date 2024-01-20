@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import "./App.css";
 import QuestionBox from "./components/QuestionBox";
 import Nav from "./components/Nav";
-import Result from "./components/Result"
 
 function App() {
 
@@ -12,6 +11,7 @@ function App() {
     <Nav/>
      <QuestionBox/> 
      {/* <Result/> */}
+     <h3 className="credits">Made with 💖 by Abhinav</h3>
     </div>
   );
 }

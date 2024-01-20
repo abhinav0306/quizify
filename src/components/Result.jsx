@@ -2,7 +2,6 @@ import React from "react";
 import "./css/result.css";
 
 const Result = ({ correctAnswers, totalQuestions }) => {
-  // calculating percentage
   const percentage = (correctAnswers / totalQuestions) * 100;
 
   // getComment function will give comment according to the percentage obtained
@@ -32,7 +31,7 @@ const Result = ({ correctAnswers, totalQuestions }) => {
         <p id="percent">{percentage}%</p>
       </div>
       <div className="restartBtn">
-        <button className="resBtn darkMode">Restart</button>
+        <button className="resBtn ">Restart</button>
       </div>
     </div>
   );

@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import "./css/box.css";
 import questions from "../assets/questions.js";
 import Result from "./Result.jsx"
-import Nav from "./Nav.jsx";
 export default function QuestionBox() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [highlight, setHighlight] = useState(false);
@@ -24,7 +23,6 @@ export default function QuestionBox() {
       if (next === 5) {
         setShowResult(true);
       }
-      // Update correct answers if the selected option is correct
       if (isCorrect) {
         setCorrectAnswers((prevCorrect) => prevCorrect + 1);
       }
@@ -38,7 +36,6 @@ export default function QuestionBox() {
     // creating a div that will contain question and options
     <div className="container flex" id="boxContainer">
       {showResult ? (
-        // Render Result component when showResult is true
         <Result correctAnswers={correctAnswers} totalQuestions={5}/>
       ) : (
       <div id="ques" className={`queBox flex ${highlight ? "highlighted" : ""} darkMode`}>
